@@ -8,24 +8,16 @@
 </head>
 <body>
   <script>
-    let names = ['iliakan', 'remy', 'jeresig'];
+    const URL = "https://api.github.com/users/";
 
-let requests = names.map(name => fetch(`https://api.github.com/users/${name}`));
+    async function getUsers(names) {
+      const requests = names.map(name => fetch(`${URL}${name}`)
+        .then(response => response.status === 200 ? response.json() : null));
 
-Promise.all(requests)
-  .then(responses => {
-    // все промисы успешно завершены
-    for(let response of responses) {
-      alert(`${response.url}: ${response.status}`); // покажет 200 для каждой ссылки
+      const result = await Promise.all(requests);
+
+      return result;
     }
-
-    return responses;
-  })
-  // преобразовать массив ответов response в response.json(),
-  // чтобы прочитать содержимое каждого
-  .then(responses => Promise.all(responses.map(r => r.json())))
-  // все JSON-ответы обработаны, users - массив с результатами
-  .then(users => users.forEach(user => alert(user.name)));
   </script>
 </body>
 </html>
