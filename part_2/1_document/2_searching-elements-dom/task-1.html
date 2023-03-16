@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Таблицу с id="age-table".
+    const table = document.getElementById('age-table');
+
+    // Все элементы label внутри этой таблицы (их три).
+    const labels = document.getElementsByTagName('input');
+
+    // Первый td в этой таблице (со словом «Age»).
+    const firstTd = table.rows[0].celles[0];
+
+    // Форму form с именем name="search".
+    const form = document.getElementsByTagName('search')[0];
+
+    // Первый input в этой форме.
+    const firstInput = form.querySelector('input');
+
+    // Последний input в этой форме.
+    const allInputs = form.querySelectorAll('input');
+    const lastInput = allInputs[allInputs.length - 1];
+  </script>
+</body>
+</html>

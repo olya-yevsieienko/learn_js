@@ -1,0 +1,6 @@
+1. elem.append(document.createTextNode(text))
+2. elem.innerHTML = text
+3. elem.textContent = text
+
+1 и 3 сработают одинаково, так как добавят text именно как текст.
+innerHTML не будет отбражать тег.

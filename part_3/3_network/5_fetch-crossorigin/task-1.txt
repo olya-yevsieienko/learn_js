@@ -1,0 +1,14 @@
+Accept: */*
+Accept-Charset: utf-8
+Accept-Encoding: gzip,deflate,sdch
+Connection: keep-alive
+Host: google.com
+Origin: http://javascript.info
+Referer: http://javascript.info/some/url
+
+
+Почему нужен Origin, если Referer содержит даже больше информации?
+Возможно ли отсутствие Referer или Origin, или это неправильно?
+
+Простые запросы отправляются сразу с заголовком Origin, а для других браузер должен получить разрешение.
+Заголовок Referer является необязательным, поэтому всегда есть Origin.

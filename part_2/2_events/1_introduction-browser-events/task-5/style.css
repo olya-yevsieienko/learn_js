@@ -1,0 +1,38 @@
+.button {
+  padding-left: 8px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  height: 36px;
+  background-color: rgb(206, 213, 233);
+  border-radius: 8px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.button__text {
+  padding: 8px;
+}
+
+.menu {
+  transform: translateY(-200px);
+}
+
+.button__img::before {
+  content: '▶ ';
+  display: block;
+}
+
+.button__img--open::before {
+  content: '▼ ';
+
+}
+
+.menu--open {
+  display: flex;
+  flex-direction: column;
+  transition: .5s ease;
+  transform: translateY(0);
+}

@@ -1,0 +1,19 @@
+.td--edit {
+  position: relative;
+}
+
+.textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  border: none;
+  resize: none;
+  overflow: auto;
+  outline: none;
+}
+
+.buttons {
+  position: absolute;
+  left: 0;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    </style>
+  </head>
+  <body>
+    <ul class="tree" id="tree">
+      <li class="tree__title">Животные
+        <ul class="tree__list">
+          <li class="tree__title">Млекопитающие
+            <ul class="tree__list">
+              <li>Коровы</li>
+              <li>Ослы</li>
+              <li>Собаки</li>
+              <li>Тигры</li>
+            </ul>
+          </li>
+          <li class="tree__title">Другие
+            <ul class="tree__list">
+              <li>Змеи</li>
+              <li>Птицы</li>
+              <li>Ящерицы</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="tree__title">Рыбы
+        <ul class="tree__list">
+          <li class="tree__title">Аквариумные
+            <ul class="tree__list">
+              <li>Гуппи</li>
+              <li>Скалярии</li>
+            </ul>
+          </li>
+          <li class="tree__title">Морские
+            <ul class="tree__list">
+              <li>Морская форель</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      const tree = document.querySelector('.tree');
+
+      tree.onclick = function(event) {
+        const target = event.target;
+
+        if (target.className !== 'tree__title') {
+          return;
+        }
+
+        let listTitle = target.parentNode.querySelector('.tree__list');
+        
+        if (!listTitle) {
+          return;
+        }
+
+        listTitle.hidden = !listTitle.hidden;
+      }
+    </script>
+  </body>
+</html>

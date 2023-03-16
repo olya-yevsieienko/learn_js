@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Кликните на кнопку ниже</h1>
+  <button id="button-show">Кликните, чтобы увидеть форму</button>
+
+  <div id="prompt-form-container">
+    <form id="prompt-form">
+      <div id="prompt-message">Введите что-нибудь...
+        <br>Пожалуйста..</div>
+      <input name="text" type="text">
+      <input type="submit" value="Ok" id="ok">
+      <input type="button" name="cancel" value="Отмена" id="cancel">
+    </form>
+  </div>
+
+  <script>
+    const button = document.getElementById('button-show');
+    const form = document.getElementById('prompt-form');
+    const formContainer = document.getElementById('prompt-form-container');
+    const message = document.getElementById('prompt-message');
+
+    formContainer.hidden = true;
+
+    function showModal() {
+      const cover = document.createElement('div');
+      cover.id = 'cover-modal';
+
+      document.body.append(cover);
+    }
+
+    function showPrompt(html, callback) {
+      showModal();
+      formContainer.hidden = false;
+
+      message.innerHTML = html;
+      form.text.value = '';
+      form.text.focus();
+
+      function complete(value) {
+        document.getElementById('cover-modal').remove();
+        formContainer.hidden = true;
+        document.onkeydown = null;
+
+        callback(value);
+      }
+
+      form.onsubmit = function(e) {
+        e.preventDefault();
+
+        const value = form.text.value;
+        if (!value.length) {
+          return false;
+        }
+
+        complete(value);
+      }
+
+      form.cancel.onclick = function() {
+        complete(null);
+      };
+
+      document.onkeydown = function(e) {
+        if (e.key === 'Escape') {
+          complete(null);
+        }
+      };
+
+      const lastElem = form.elements[form.elements.length - 1];
+      const firstElem = form.elements[0];
+
+      lastElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && !e.shiftKey) {
+          firstElem.focus();
+          return false;
+        }
+      };
+
+      firstElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && e.shiftKey) {
+          lastElem.focus();
+          return false;
+        }
+      };
+
+      formContainer.hidden = false;
+      form.elements.text.focus();
+    }
+
+    button.onclick = function() {
+      showPrompt("Введите что-нибудь<br>...умное :)", function(value) {
+        alert(value);
+      });
+    }
+  </script>
+</body>
+</html>

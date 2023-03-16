@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Пользователи:</div>
+    <ul>
+      <li>Джон</li>
+      <li>Пит</li>
+    </ul>
+
+    <script>
+      // get <div>
+      const div1 = document.body.firstElementChild;
+
+      // get <ul>
+      const ul1 = document.body.lastElementChild;
+
+      // get second <li>
+      const allLi1 = document.body.lastElementChild.lastElementChild;
+    </script>
+
+    <script>
+      const children = [];
+      for (const elem of document.body.children) {
+        children.push(elem);
+      }
+
+      // get <div>
+      const div2 = children[0];
+
+      // get <ul>
+      const ul2 = children[1];
+
+      // get second <li>
+      const allLi2 = [];
+      for (const elem of ul.children) {
+        allLi.push(elem);
+      }
+
+      const secondLi2 = allLi[1];
+    </script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+В чём отличие между getComputedStyle(elem).width и elem.clientWidth?
+
+1. getComputedStyle возвращает фактическое значение css-свойства, а clientWidth размер содержимого вместе с padding, без прокрутки.
+2. getComputedStyle возвращает строку с px в конце, а clientWidth - число.
